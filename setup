@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This script is inspired by the wonderful people over at https://github.com/thoughtbot/laptop
+# shellcheck disable=SC3043
+
+fancy_echo() {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
+
+fancy_echo "Changing your shell to zsh ..."
+fancy_echo "Yes very strict parents"
+fancy_echo "I'm printing something on the screen"
