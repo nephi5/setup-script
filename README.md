@@ -12,7 +12,7 @@ Install
 Download the script:
 
 ```sh 
-curl --remote-name https://github.com/nephi5/setup-script/blob/main/setup
+curl --remote-name https://raw.githubusercontent.com/nephi5/setup-script/main/setup
 ```
 
 Review the script (avoid running scripts you haven't read!):
