@@ -18,13 +18,13 @@ curl --remote-name https://github.com/nephi5/setup-script/blob/main/setup
 Review the script (avoid running scripts you haven't read!):
 
 ```sh
-less mac
+less setup
 ```
 
 Execute the downloaded script:
 
 ```sh
-sh mac 2>&1 | tee ~/laptop.log
+sh setup 2>&1 | tee ~/laptop.log
 ```
 
 Optionally, review the log:
