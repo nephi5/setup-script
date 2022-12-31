@@ -24,13 +24,13 @@ less setup
 Execute the downloaded script:
 
 ```sh
-sh setup 2>&1 | tee ~/laptop.log
+sh setup 2>&1 | tee ~/setup-script.log
 ```
 
 Optionally, review the log:
 
 ```sh
-less ~/laptop.log
+less ~/setup-script.log
 ```
 
 Debugging
