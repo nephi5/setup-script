@@ -1,15 +1,43 @@
 #!/bin/sh
 
 # This script is inspired by the wonderful people over at https://github.com/thoughtbot/laptop
-# shellcheck disable=SC3043
 
-fancy_echo() {
-  local fmt="$1"; shift
+function get_color() {
 
-  # shellcheck disable=SC2059
-  printf "\\n$fmt\\n" "$@"
+    if test -z "$1"; then
+        echo "\e[0m"
+    elif [ $1 == "FORMAT_ERROR" ]; then
+        echo "\e[31m"
+    elif [ $1 == "FORMAT_SUCCESS" ]; then
+        echo "\e[32m"
+    elif [ $1 == "FORMAT_WARNING" ]; then
+        echo "\e[33m"
+    else
+        echo "\e[0m"
+    fi
 }
 
-fancy_echo "Changing your shell to zsh ..."
-fancy_echo "Yes very strict parents"
-fancy_echo "I'm printing something on the screen"
+function fancy_echo() {
+    local message="$1"
+    local format_color=$(get_color "$2")
+    printf "\\n$format_color $message\\n\e[0m"
+}
+
+function append_to_zshrc() {
+  local text="$1" zshrc
+  local skip_new_line="${2:-0}"
+
+  if [ -w "$HOME/.zshrc.local" ]; then
+    zshrc="$HOME/.zshrc.local"
+  else
+    zshrc="$HOME/.zshrc"
+  fi
+
+  if ! grep -Fqs "$text" "$zshrc"; then
+    if [ "$skip_new_line" -eq 1 ]; then
+      printf "%s\\n" "$text" >> "$zshrc"
+    else
+      printf "\\n%s\\n" "$text" >> "$zshrc"
+    fi
+  fi
+}
