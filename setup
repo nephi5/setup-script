@@ -41,3 +41,19 @@ function append_to_zshrc() {
     fi
   fi
 }
+
+trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
+
+set -e
+
+if [ ! -d "$HOME/.bin/" ]; then
+  mkdir "$HOME/.bin"
+  fancy_echo "sucessfully added .bin directory" "FORMAT_SUCCESS"
+fi
+
+if [ ! -f "$HOME/.zshrc" ]; then
+  touch "$HOME/.zshrc"
+  fancy_echo "sucessfullt added created .zshrc file" "FORMAT_SUCCESS"
+fi
+
+append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
