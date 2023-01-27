@@ -58,9 +58,6 @@ fi
 
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
 
-# try if this line works on a fresh machine
-defaults read com.apple.dock persistent-apps | plutil -convert json - -o -
-
 # this i useful in order to show hidden folders and files.
 defaults write com.apple.finder AppleShowAllFiles -string YES
 
@@ -68,7 +65,12 @@ defaults write com.apple.finder AppleShowAllFiles -string YES
 defaults write com.apple.dock persistent-apps -array
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 48
 
 # Show only open applications in the Dock
 defaults write com.apple.dock static-only -bool true
+
+# Add a spacer to the left side of the Dock (where the applications are)
+defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+# Add a spacer to the right side of the Dock (where the Trash is)
+defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
