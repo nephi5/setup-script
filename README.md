@@ -6,12 +6,13 @@ It can be run multiple times on the same machine safely.
 It installs, upgrades, or skips packages
 based on what is already installed on the machine.
 
-Install
--------
+## Install
+
+---
 
 Download the script:
 
-```sh 
+```sh
 curl --remote-name https://raw.githubusercontent.com/nephi5/setup-script/main/setup
 ```
 
@@ -33,49 +34,63 @@ Optionally, review the log:
 less ~/setup-script.log
 ```
 
-Debugging
----------
+## Debugging
 
-Your last Laptop run will be saved to `~/laptop.log`.
+---
+
+Your last setup-script run will be saved to `~/setup-script.log`.
 Read through it to see if you can debug the issue yourself.
 
-What it sets up
----------------
+## What it sets up
+
+---
 
 macOS tools:
 
-* [Homebrew] for managing operating system libraries.
+- [Homebrew] for managing operating system libraries.
 
-[Homebrew]: http://brew.sh/
+[homebrew]: http://brew.sh/
 
 Unix tools:
 
-* [Universal Ctags] for indexing files for vim tab completion
-* [Git] for version control
-* [OpenSSL] for Transport Layer Security (TLS)
-* [RCM] for managing company and personal dotfiles
-* [The Silver Searcher] for finding things in files
-* [Tmux] for saving project state and switching between projects
-* [Watchman] for watching for filesystem events
-* [Zsh] as your shell
+- [Universal Ctags] for indexing files for vim tab completion
+- [Git] for version control
+- [OpenSSL] for Transport Layer Security (TLS)
+- [RCM] for managing company and personal dotfiles
+- [The Silver Searcher] for finding things in files
+- [Tmux] for saving project state and switching between projects
+- [Watchman] for watching for filesystem events
+- [Zsh] as your shell
 
-[Universal Ctags]: https://ctags.io/
-[Git]: https://git-scm.com/
-[OpenSSL]: https://www.openssl.org/
-[RCM]: https://github.com/thoughtbot/rcm
-[The Silver Searcher]: https://github.com/ggreer/the_silver_searcher
-[Tmux]: http://tmux.github.io/
-[Watchman]: https://facebook.github.io/watchman/
-[Zsh]: http://www.zsh.org/
+[universal ctags]: https://ctags.io/
+[git]: https://git-scm.com/
+[openssl]: https://www.openssl.org/
+[rcm]: https://github.com/thoughtbot/rcm
+[the silver searcher]: https://github.com/ggreer/the_silver_searcher
+[tmux]: http://tmux.github.io/
+[watchman]: https://facebook.github.io/watchman/
+[zsh]: http://www.zsh.org/
 
 GitHub tools:
 
-* [GitHub CLI] for interacting with the GitHub API
+- [GitHub CLI] for interacting with the GitHub API
 
-[GitHub CLI]: https://cli.github.com/
+[github cli]: https://cli.github.com/
 
-Contributing
-------------
+## MacOs Customization (Experimental)
+
+---
+
+I have included some costumization, this however could break your System use it with care. By default these lines are commented out.
+
+- Removing all dock items
+- Persistently Showing all hidden files and folders in Finder
+- Setting dock icon size to 36
+- Only showing items in dock that are currently open
+
+## Contributing
+
+---
 
 Edit the `setup` file.
 Document in the `README.md` file.
@@ -86,8 +101,8 @@ Follow shell style guidelines by using [ShellCheck] and [Syntastic].
 brew install shellcheck
 ```
 
-[ShellCheck]: http://www.shellcheck.net/about.html
-[Syntastic]: https://github.com/scrooloose/syntastic
+[shellcheck]: http://www.shellcheck.net/about.html
+[syntastic]: https://github.com/scrooloose/syntastic
 
 ### Testing your changes
 
@@ -98,4 +113,4 @@ Tip: Make a fresh virtual machine with the installation of macOS completed and
 your user created and first launch complete. Then duplicate that machine to test
 the script each time on a fresh install thats ready to go.
 
-[UTM]: https://mac.getutm.app
+[utm]: https://mac.getutm.app

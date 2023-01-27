@@ -4,23 +4,23 @@
 
 function get_color() {
 
-    if test -z "$1"; then
-        echo "\e[0m"
-    elif [ $1 == "FORMAT_ERROR" ]; then
-        echo "\e[31m"
-    elif [ $1 == "FORMAT_SUCCESS" ]; then
-        echo "\e[32m"
-    elif [ $1 == "FORMAT_WARNING" ]; then
-        echo "\e[33m"
-    else
-        echo "\e[0m"
-    fi
+  if test -z "$1"; then
+    echo "\e[0m"
+  elif [ $1 == "FORMAT_ERROR" ]; then
+    echo "\e[31m"
+  elif [ $1 == "FORMAT_SUCCESS" ]; then
+    echo "\e[32m"
+  elif [ $1 == "FORMAT_WARNING" ]; then
+    echo "\e[33m"
+  else
+    echo "\e[0m"
+  fi
 }
 
 function fancy_echo() {
-    local message="$1"
-    local format_color=$(get_color "$2")
-    printf "\\n$format_color $message\\n\e[0m"
+  local message="$1"
+  local format_color=$(get_color "$2")
+  printf "\\n$format_color $message\\n\e[0m"
 }
 
 function append_to_zshrc() {
@@ -35,9 +35,9 @@ function append_to_zshrc() {
 
   if ! grep -Fqs "$text" "$zshrc"; then
     if [ "$skip_new_line" -eq 1 ]; then
-      printf "%s\\n" "$text" >> "$zshrc"
+      printf "%s\\n" "$text" >>"$zshrc"
     else
-      printf "\\n%s\\n" "$text" >> "$zshrc"
+      printf "\\n%s\\n" "$text" >>"$zshrc"
     fi
   fi
 }
@@ -57,3 +57,18 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
+
+# try if this line works on a fresh machine
+defaults read com.apple.dock persistent-apps | plutil -convert json - -o -
+
+# this i useful in order to show hidden folders and files.
+defaults write com.apple.finder AppleShowAllFiles -string YES
+
+# this will remove all default items from the docker
+defaults write com.apple.dock persistent-apps -array
+
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 36
+
+# Show only open applications in the Dock
+defaults write com.apple.dock static-only -bool true
