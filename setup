@@ -102,8 +102,8 @@ fi
 export NVM_DIR="$HOME/.nvm"
 append_to_zshrc "export NVM_DIR=\"\$HOME/.nvm\""
 append_to_zshrc "# This loads nvm" 1
-append_to_zshrc "[ -s \"\$HOMEBREW_PREFIX/opt/nvm/nvm.sh\" ] && \. \"\$HOMEBREW_PREFIX/opt/nvm/nvm.sh\"" 1
+append_to_zshrc "[ -s \"$HOMEBREW_PREFIX/opt/nvm/nvm.sh\" ] && \. \"$HOMEBREW_PREFIX/opt/nvm/nvm.sh\"" 1
 append_to_zshrc "# This loads nvm bash_completion" 1
-append_to_zshrc "[ -s \"\$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm\" ] && \. \"\$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm\"" 1
+append_to_zshrc "[ -s \"$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm\" ] && \. \"$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm\"" 1
 
 nvm install node
