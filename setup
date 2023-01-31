@@ -112,9 +112,9 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm install --lts
 
-fancy_echo "Successfully installed node version: $(node --version)"
-fancy_echo "Successfully installed npm version: $(npm --version)"
+fancy_echo "Successfully installed node version: $(node --version)" "FORMAT_SUCCESS"
+fancy_echo "Successfully installed npm version: $(npm --version)" "FORMAT_SUCCESS"
 
 npm install -g @angular/cli
 
-fancy_echo "Successfully installed @angular/cli version: $(ng --version)"
+fancy_echo "Successfully installed @angular/cli version: $(ng --version)" "FORMAT_SUCCESS"
