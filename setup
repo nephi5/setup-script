@@ -99,7 +99,6 @@ if [ ! -d ~/.nvm ]; then
 fi
 
 # Adding NVM to shell profile
-export NVM_DIR="$HOME/.nvm"
 append_to_zshrc "export NVM_DIR=\"\$HOME/.nvm\""
 append_to_zshrc "# This loads nvm" 1
 append_to_zshrc "[ -s \"$HOMEBREW_PREFIX/opt/nvm/nvm.sh\" ] && \. \"$HOMEBREW_PREFIX/opt/nvm/nvm.sh\"" 1
