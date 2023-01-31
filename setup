@@ -77,7 +77,7 @@ if ! command -v brew >/dev/null; then
   export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 fi
 
-brew bundle --file=- <<EOF
+brew bundle --verbose --file=- <<EOF
 #Applications
 cask "google-chrome"
 cask "firefox"
@@ -92,7 +92,7 @@ brew "imagemagick"
 
 # Useful utilities
 brew "youtube-dl"
-EOF --verbose
+EOF
 
 if [ ! -d ~/.nvm ]; then
   mkdir ~/.nvm
