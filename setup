@@ -71,7 +71,7 @@ if ! command -v brew >/dev/null; then
   /bin/bash -c \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  append_to_zshrc "# Set PATH, MANPATH, etc., for Homebrew."
+  append_to_zshrc "# Set PATH, MANPATH, etc., for Homebrew." 1
   append_to_zshrc "eval \"\$($HOMEBREW_PREFIX/bin/brew shellenv)\""
 
   export PATH="$HOMEBREW_PREFIX/bin:$PATH"
@@ -92,5 +92,11 @@ brew "imagemagick"
 # Useful utilities
 brew "youtube-dl"
 EOF
+
+append_to_zshrc "export NVM_DIR=\"$HOME/.nvm\"" 1
+append_to_zshrc "# This loads nvm" 1
+append_to_zshrc "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" 1
+append_to_zshrc "# This loads nvm bash_completion" 1
+append_to_zshrc "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"" 1
 
 nvm install node
