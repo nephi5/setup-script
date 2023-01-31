@@ -86,12 +86,6 @@ cask "iterm2"
 
 # Node
 brew "nvm"
-
-# Image manipulation
-brew "imagemagick"
-
-# Useful utilities
-brew "youtube-dl"
 EOF
 
 if [ ! -d ~/.nvm ]; then
