@@ -57,23 +57,3 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
-
-# this i useful in order to show hidden folders and files.
-defaults write com.apple.finder AppleShowAllFiles -string YES
-
-# this will remove all default items from the docker
-defaults write com.apple.dock persistent-apps -array
-
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 48
-
-# Show only open applications in the Dock
-defaults write com.apple.dock static-only -bool true
-
-# Add a spacer to the left side of the Dock (where the applications are)
-defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-# Add a spacer to the right side of the Dock (where the Trash is)
-defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
-
-# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true

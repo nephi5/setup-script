@@ -77,16 +77,25 @@ GitHub tools:
 
 [github cli]: https://cli.github.com/
 
-## MacOs Customization (Experimental)
+## MacOs Customization
 
 ---
 
-I have included some costumization, this however could break your System use it with care. By default these lines are commented out.
+If you'd like to modify the look and feel of MacOs and change some of it's system settings you can run the `mac-customization` script.
 
-- Removing all dock items
-- Persistently Showing all hidden files and folders in Finder
-- Setting dock icon size to 36
-- Only showing items in dock that are currently open
+Download the script:
+
+```sh
+curl --remote-name https://raw.githubusercontent.com/nephi5/setup-script/main/mac-customization
+```
+
+Execute the script:
+
+```sh
+sh mac-customization 2>&1 | tee ~/mac-customization.log
+```
+
+Check the file to make sure that the changes that are being made suit your needs.
 
 ## Contributing
 
