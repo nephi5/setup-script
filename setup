@@ -82,6 +82,7 @@ brew bundle --file=- <<EOF
 cask "google-chrome"
 cask "firefox"
 cask "visual-studio-code"
+cask "iterm2"
 
 # Node
 brew "nvm"
@@ -91,7 +92,7 @@ brew "imagemagick"
 
 # Useful utilities
 brew "youtube-dl"
-EOF
+EOF --verbose
 
 if [ ! -d ~/.nvm ]; then
   mkdir ~/.nvm
@@ -109,4 +110,11 @@ append_to_zshrc "[ -s \"$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm\" ] &
 export NVM_DIR="$HOME/.nvm"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
 
-nvm install node
+nvm install --lts
+
+fancy_echo "Successfully installed node version: $(node --version)"
+fancy_echo "Successfully installed npm version: $(npm --version)"
+
+npm install -g @angular/cli
+
+fancy_echo "Successfully installed @angular/cli version: $(ng --version)"
