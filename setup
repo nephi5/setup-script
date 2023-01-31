@@ -117,4 +117,4 @@ fancy_echo "Successfully installed npm version: $(npm --version)" "FORMAT_SUCCES
 
 npm install -g @angular/cli
 
-fancy_echo "Successfully installed @angular/cli version: $(ng --version)" "FORMAT_SUCCESS"
+fancy_echo "Successfully installed @angular/cli version: $(ng version | grep -oE 'Angular CLI: ([0-9]+\.[0-9]+\.[0-9]+)' | awk '{print $3}')" "FORMAT_SUCCESS"
