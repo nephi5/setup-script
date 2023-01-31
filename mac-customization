@@ -1,16 +1,23 @@
 #!/bin/sh
 
+# feel free to add your own customization here.
+# source of inspiration https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# useful article https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
+
 # this i useful in order to show hidden folders and files.
 defaults write com.apple.finder AppleShowAllFiles -string YES
 
 # this will remove all default items from the docker
 defaults write com.apple.dock persistent-apps -array
 
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 48
+# Set the icon size of Dock items to 64 pixels
+defaults write com.apple.dock tilesize -int 64
 
 # Show only open applications in the Dock
-defaults write com.apple.dock static-only -bool true
+# defaults write com.apple.dock static-only -bool true
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
 
 # Add a spacer to the left side of the Dock (where the applications are)
 defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
@@ -19,3 +26,11 @@ defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
+
+# This will show you all file extensions in finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
