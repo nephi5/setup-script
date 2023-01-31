@@ -78,11 +78,10 @@ if ! command -v brew >/dev/null; then
 fi
 
 brew bundle --file=- <<EOF
-
 #Applications
-brew install --cask google-chrome
-brew install --cask firefox
-brew install --cask visual-studio-code
+cask "google-chrome"
+cask "firefox"
+cask "visual-studio-code"
 
 # Node
 brew "nvm"
@@ -92,5 +91,6 @@ brew "imagemagick"
 
 # Useful utilities
 brew "youtube-dl"
-
 EOF
+
+nvm install node
