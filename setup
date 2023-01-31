@@ -57,3 +57,40 @@ if [ ! -f "$HOME/.zshrc" ]; then
 fi
 
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
+
+# Determine Homebrew prefix
+arch="$(uname -m)"
+if [ "$arch" = "arm64" ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+if ! command -v brew >/dev/null; then
+  fancy_echo "Installing Homebrew ..."
+  /bin/bash -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  append_to_zshrc "# Set PATH, MANPATH, etc., for Homebrew."
+  append_to_zshrc "eval \"\$($HOMEBREW_PREFIX/bin/brew shellenv)\""
+
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+fi
+
+brew bundle --file=- <<EOF
+
+#Applications
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask visual-studio-code
+
+# Node
+brew "nvm"
+
+# Image manipulation
+brew "imagemagick"
+
+# Useful utilities
+brew "youtube-dl"
+
+EOF
