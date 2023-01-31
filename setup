@@ -93,7 +93,7 @@ brew "imagemagick"
 brew "youtube-dl"
 EOF
 
-append_to_zshrc "export NVM_DIR=\"$HOME/.nvm\"" 1
+append_to_zshrc "export NVM_DIR=\"$HOME/.nvm\""
 append_to_zshrc "# This loads nvm" 1
 append_to_zshrc "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" 1
 append_to_zshrc "# This loads nvm bash_completion" 1
