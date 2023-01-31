@@ -96,30 +96,3 @@ sh mac-customization 2>&1 | tee ~/mac-customization.log
 ```
 
 Check the file to make sure that the changes that are being made suit your needs.
-
-## Contributing
-
----
-
-Edit the `setup` file.
-Document in the `README.md` file.
-Update the `CHANGELOG`.
-Follow shell style guidelines by using [ShellCheck] and [Syntastic].
-
-```sh
-brew install shellcheck
-```
-
-[shellcheck]: http://www.shellcheck.net/about.html
-[syntastic]: https://github.com/scrooloose/syntastic
-
-### Testing your changes
-
-Test your changes by running the script on a fresh install of macOS.
-You can use the free and open source emulator [UTM].
-
-Tip: Make a fresh virtual machine with the installation of macOS completed and
-your user created and first launch complete. Then duplicate that machine to test
-the script each time on a fresh install thats ready to go.
-
-[utm]: https://mac.getutm.app
